@@ -1,0 +1,6 @@
+python-telegram-bot==20.0a3
+pymongo==3.12.1
+gridfs==1.0.0
+aiohttp==3.8.1
+python-dotenv==0.19.2
+bson==0.5.10
