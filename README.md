@@ -1,148 +1,149 @@
 ---
 
-# Telegram Video Verification Bot
+# Bot Verifikasi Video Telegram
 
-This is a Telegram bot designed for video verification and management. It allows owners to upload, delete, and manage videos while users can verify their membership by sending screenshots.
+Ini adalah bot Telegram yang dirancang untuk verifikasi dan manajemen video. Bot ini memungkinkan pemilik untuk mengupload, menghapus, dan mengelola video, sementara pengguna dapat memverifikasi keanggotaan mereka dengan mengirimkan screenshot.
 
-## Features
+## Fitur
 
-- Owner commands for managing verification links and videos.
-- User commands for confirming membership and accessing videos.
-- Screenshot verification process.
-- Video upload and deletion functionality.
+- Perintah pemilik untuk mengelola tautan verifikasi dan video.
+- Perintah pengguna untuk mengonfirmasi keanggotaan dan mengakses video.
+- Proses verifikasi screenshot.
+- Fungsionalitas upload dan penghapusan video.
 
-## Requirements
+## Persyaratan
 
 - Python 3.7+
 - MongoDB
-- Telegram Bot Token
+- Token Bot Telegram
 
-## Installation
+## Instalasi
 
-1. **Clone the repository**:
+1. **Clone repositori**:
    ```bash
    git clone <repository-url>
    cd <repository-directory>
    ```
 
-2. **Create a virtual environment** (optional but recommended):
+2. **Buat lingkungan virtual** (opsional tetapi disarankan):
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   source venv/bin/activate  # Pada Windows gunakan `venv\Scripts\activate`
    ```
 
-3. **Install required packages**:
+3. **Install paket yang dibutuhkan**:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Set up environment variables**:
-   Create a `.env` file in the root of the project and add the following variables:
+4. **Siapkan variabel lingkungan**:
+   Buat file `.env` di root proyek dan tambahkan variabel berikut:
    ```plaintext
-   MONGO_URI=<your_mongodb_uri>
-   TELEGRAM_TOKEN=<your_telegram_bot_token>
-   OWNER_ID=<your_telegram_id>
-   VERIFICATION_LINK=<your_verification_link>
+   MONGO_URI=<mongodb_uri_anda>
+   TELEGRAM_TOKEN=<token_bot_telegram_anda>
+   OWNER_ID=<id_telegram_anda>
+   VERIFICATION_LINK=<tautan_verifikasi_anda>
    ```
 
-   - `MONGO_URI`: The connection string for your MongoDB database.
-   - `TELEGRAM_TOKEN`: The token you received from BotFather.
-   - `OWNER_ID`: Your Telegram user ID (you can find it using a bot like @userinfobot).
-   - `VERIFICATION_LINK`: The link to the group that users must join for verification.
+   - `MONGO_URI`: String koneksi untuk database MongoDB Anda.
+   - `TELEGRAM_TOKEN`: Token yang Anda terima dari BotFather.
+   - `OWNER_ID`: ID pengguna Telegram Anda (Anda dapat menemukannya menggunakan bot seperti @userinfobot).
+   - `VERIFICATION_LINK`: Tautan ke grup yang harus diikuti oleh pengguna untuk verifikasi.
 
-## Running the Bot
+## Menjalankan Bot
 
-1. **Start the bot**:
+1. **Mulai bot**:
    ```bash
    python your_bot_file.py
    ```
 
-2. The bot will run and log its status to the console.
+2. Bot akan berjalan dan mencatat statusnya ke konsol.
 
-## Usage
+## Penggunaan
 
-### Owner Commands
+### Perintah Pemilik
 
-- **Set Verification Link**: 
+- **Setel Tautan Verifikasi**: 
   ```
-  /set_verification_link <new_link>
+  /set_verification_link <tautan_baru>
   ```
 
-- **Help Command**: 
+- **Perintah Bantuan**: 
   ```
   /help
   ```
 
 - **Upload Video**: 
-  Use the button provided in the bot.
+  Gunakan tombol yang disediakan di dalam bot.
 
-- **Delete Video**: 
-  Use the button provided in the bot.
+- **Hapus Video**: 
+  Gunakan tombol yang disediakan di dalam bot.
 
-### User Commands
+### Perintah Pengguna
 
-- **Start Interaction**: 
+- **Mulai Interaksi**: 
   ```
   /start
   ```
 
-- **Confirm Membership**: 
-  Click the "Konfirmasi Bergabung" button.
+- **Konfirmasi Keanggotaan**: 
+  Klik tombol "Konfirmasi Bergabung".
 
-- **Send Screenshot**: 
-  After confirming membership, send a screenshot of your group membership.
+- **Kirim Screenshot**: 
+  Setelah mengonfirmasi keanggotaan, kirim screenshot keanggotaan grup Anda.
 
-- **List Videos**: 
-  Click the "Lihat Video" button to view available videos.
+- **Daftar Video**: 
+  Klik tombol "Lihat Video" untuk melihat video yang tersedia.
 
-## Deploying the Bot
+## Deploy Bot
 
-You can deploy the bot on any server that supports Python. Here's a simple guide using a cloud server like DigitalOcean or AWS.
+Anda dapat melakukan deploy bot di server mana pun yang mendukung Python. Berikut adalah panduan sederhana menggunakan server cloud seperti DigitalOcean atau AWS.
 
-### Steps to Deploy
+### Langkah untuk Deploy
 
-1. **Create a Server**: Set up a new cloud server with Ubuntu.
+1. **Buat Server**: Siapkan server cloud baru dengan Ubuntu.
 
-2. **SSH into Your Server**:
+2. **SSH ke Server Anda**:
    ```bash
-   ssh your_user@your_server_ip
+   ssh user_anda@ip_server_anda
    ```
 
-3. **Install Python and Pip** (if not installed):
+3. **Install Python dan Pip** (jika belum terpasang):
    ```bash
    sudo apt update
    sudo apt install python3 python3-pip
    ```
 
 4. **Install MongoDB**:
-   Follow the instructions on the [MongoDB installation guide](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/).
+   Ikuti instruksi di [panduan instalasi MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/).
 
-5. **Clone the Repository**:
-   Follow the same steps as in the installation section.
+5. **Clone Repositori**:
+   Ikuti langkah yang sama seperti di bagian instalasi.
 
-6. **Set Up Environment Variables**:
-   Create a `.env` file as described earlier.
+6. **Siapkan Variabel Lingkungan**:
+   Buat file `.env` seperti yang dijelaskan sebelumnya.
 
-7. **Run the Bot**:
-   Start your bot as shown in the running section. You may want to use a tool like `screen` or `tmux` to keep the bot running after you log out:
+7. **Jalankan Bot**:
+   Mulai bot Anda seperti yang ditunjukkan di bagian menjalankan.
+
+8. **Menggunakan `screen` untuk Menjalankan Bot**:
+   Anda dapat menggunakan alat seperti `screen` untuk menjaga bot tetap berjalan setelah Anda log out:
    ```bash
    sudo apt install screen
    screen
    python your_bot_file.py
    ```
 
-8. **Detaching from Screen**: Press `Ctrl+A`, then `D` to detach.
+9. **Mendetach dari Screen**: Tekan `Ctrl+A`, lalu `D` untuk mendetach.
 
-## Troubleshooting
+## Pemecahan Masalah
 
-- **Logs**: Check the console output for any errors.
-- **MongoDB Connection**: Ensure your MongoDB URI is correct and accessible from your server.
-- **Telegram Bot Issues**: Verify that your bot token is correct and that you are using the bot commands properly.
+- **Log**: Periksa output konsol untuk menemukan kesalahan.
+- **Koneksi MongoDB**: Pastikan URI MongoDB Anda benar dan dapat diakses dari server Anda.
+- **Masalah Bot Telegram**: Verifikasi bahwa token bot Anda benar dan bahwa Anda menggunakan perintah bot dengan benar.
 
-## License
+## Lisensi
 
-This project is licensed under the MIT License.
+Proyek ini dilisensikan di bawah Lisensi MIT.
 
 ---
-
-Feel free to adjust the instructions and add any additional information you think might be necessary!
