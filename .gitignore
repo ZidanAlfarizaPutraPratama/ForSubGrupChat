@@ -1,1 +1,11 @@
+# Mengabaikan file lingkungan
 .env
+
+# Mengabaikan direktori venv
+venv/
+
+# Mengabaikan file log
+*.log
+
+# Mengabaikan file cache
+__pycache__/
