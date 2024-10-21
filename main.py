@@ -133,8 +133,8 @@ async def handle_screenshot(update: Update, context: CallbackContext):
                         await context.bot.send_photo(chat_id=owner_id, photo=photo_data)  # Send to all owners
 
                         keyboard = [
-                            [InlineKeyboardButton("ACC", callback_data=f'acc_{user_id}')],
-                            [InlineKeyboardButton("REJECT", callback_data=f'reject_{user_id}')],
+                            [InlineKeyboardButton("Approve", callback_data=f'acc_{user_id}')],
+                            [InlineKeyboardButton("Reject", callback_data=f'reject_{user_id}')],
                         ]
                         reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -200,6 +200,7 @@ async def approve_verification(update: Update, context: CallbackContext):
         await update.callback_query.answer("Verifikasi Anda diterima.")
         await context.bot.send_message(chat_id=user_id, text="Verifikasi Anda diterima. Anda dapat melihat video sekarang.")
         logger.info(f"User {user_id} telah diverifikasi: ACC")
+        del verification_requests[user_id]  # Remove request after approval
     else:
         await update.callback_query.answer("Tidak ada screenshot yang tersedia untuk verifikasi.")
 
